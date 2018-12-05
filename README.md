@@ -63,8 +63,8 @@ a new password hash will be generated, replace in `config/sg/sg_internal_users.y
 
 **Note:** places to note if passwords are changed in `elasticsearch/config/sg/sg_internal_users.yml`:
 
-- kibana --> `kibana/config/kibana.yml` (can be changed first before starting stack)
-- logstash --> `logstash/pipeline/logstash.conf` (can be changed first before starting stack)
+- kibana --> `kibana/config/kibana.yml` (can be changed first before deploying stack)
+- logstash --> `logstash/pipeline/logstash.conf` (can be changed first before deploying stack)
 
 Initiate searchguard:
 
