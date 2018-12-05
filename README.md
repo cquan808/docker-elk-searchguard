@@ -59,7 +59,7 @@ Get docker container name `docker ps -a` to ssh into:
 
 `plugins/search-guard-6/tools/hash.sh -p <new-password>`
 
-then a new password hash will be generated, replace in `config/sg/sg_internal_users.yml` if you want to update (recommended for production)
+a new password hash will be generated, replace in `config/sg/sg_internal_users.yml` if you want to update (recommended for production)
 
 Initiate searchguard:
 
