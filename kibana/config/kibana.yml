@@ -10,7 +10,7 @@ elasticsearch.url: http://elasticsearch:9200
 #
 elasticsearch.username: "kibanaserver"
 elasticsearch.password: "kibanaserver"
-#elasticsearch.ssl.verificationMode: none
+
 elasticsearch.ssl.verificationMode: certificate
 elasticsearch.ssl.certificateAuthorities: /usr/share/kibana/ssl/root-ca.pem
 
