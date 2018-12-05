@@ -45,7 +45,7 @@ Build images for elasticsearch, kibana, and logstash:
 
 `docker-compose build`
 
-**Note** if docker-compose is not installed: `apt-get install docker-compose`
+**Note:** if docker-compose is not installed: `apt-get install docker-compose`
 
 Deploy Stack:
 
@@ -55,19 +55,28 @@ Get docker container name `docker ps -a` to ssh into:
 
 `docker exec -it <elasticsearch-container-name> /bin/bash`
 
-**Note** to generate new password for user: 
+**Note:** to generate new password for user: 
 
 `plugins/search-guard-6/tools/hash.sh -p <new-password>`
 
 a new password hash will be generated, replace in `config/sg/sg_internal_users.yml` if you want to update (recommended for production)
 
+**Note:** places to note if passwords are changed: (ssh into first)
+
+- kibana container --> `config/kibana.yml`
+- logstash container --> `pipeline/logstash.conf`
+
 Initiate searchguard:
 
 `bin/startNode.sh`
 
-Check elasticsearch healt:
+Check elasticsearch health:
 
 `curl http://localhost:9200/_searchguard/health`
+
+Check elasticsearch index:
+
+`curl http://localhost:9200/_cat/indices?pretty -u admin:admin`
 
 After elk-searchguard is started, on a command prompt of your choice in your local computer (windows 10 for me) with gcloud sdk installed, run:
 
@@ -77,5 +86,5 @@ Open a browser and enter kibana:
 
 `localhost:80`
 
-**Note** unchanged user:password to login is `admin:admin`
+**Note:** unchanged user:password to login is `admin:admin`
 
