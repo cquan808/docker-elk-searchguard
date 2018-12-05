@@ -16,6 +16,7 @@ Versions used:
 
 - java-1.8.0-openjdk installed on elasticsearch container for search-guard-tlstool to work
 - search-guard-tlstool is used in elasticsearch container and generates ssl for elasticsearch and kibana
+- update initialing ssl searchguard `sgadmin` with pem files!!
 - root-da.pem is shared between elasticsearch and kibana containers
 
 ## Quickstart
