@@ -60,9 +60,9 @@ Get docker container name for elasticsearch `docker ps -a` and ssh into:
 
 `plugins/search-guard-6/tools/hash.sh -p <new-password>`
 
-a new password hash will be generated, replace in `elasticsearch/config/sg/sg_internal_users.yml` if you want to update (recommended for production)
+a new password hash will be generated, replace in `config/sg/sg_internal_users.yml` if you want to update (recommended for production)
 
-**Note:** places to note if passwords are changed in `elasticsearch/config/sg/sg_internal_users.yml`:
+**Note:** places to note if passwords are changed in `elasticsearch/config/sg/sg_internal_users.yml` (after exiting ssh):
 
 - kibana --> `kibana/config/kibana.yml` (must be changed first before build deploying stack)
 - logstash --> `logstash/pipeline/logstash.conf` (must be changed first before build and deploying stack)
