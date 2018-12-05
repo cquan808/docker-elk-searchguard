@@ -2,7 +2,14 @@
 
 - based from repo: https://github.com/deviantony/docker-elk/tree/searchguard
 
-Versions used:
+## Feature Updates:
+
+- java-1.8.0-openjdk installed on elasticsearch container for search-guard-tlstool to work
+- search-guard-tlstool is used in elasticsearch container and generates ssl for elasticsearch and kibana
+- update initialing ssl searchguard `sgadmin` with pem files!!
+- root-da.pem is shared between elasticsearch and kibana containers
+
+## Versions:
 
 - elk 6.4.2
 - search guard 6
@@ -10,14 +17,7 @@ Versions used:
 - java-1.8.0-openjdk
 - docker (v18.03)
 
-**Note** I currently used on GCE Ubuntu 18.04 LTS server with docker swarm, refer to https://github.com/cquan808/docker-swarm-gcepd.git for setup
-
-## feature updates:
-
-- java-1.8.0-openjdk installed on elasticsearch container for search-guard-tlstool to work
-- search-guard-tlstool is used in elasticsearch container and generates ssl for elasticsearch and kibana
-- update initialing ssl searchguard `sgadmin` with pem files!!
-- root-da.pem is shared between elasticsearch and kibana containers
+**Note:** I currently use on GCE Ubuntu 18.04 LTS server with docker swarm, refer to https://github.com/cquan808/docker-swarm-gcepd.git for setup
 
 ## Quickstart
 
