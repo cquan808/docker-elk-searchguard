@@ -8,8 +8,8 @@ services:
       - "9200:9200"
       - "9300:9300"
 #    configs:
-#      - source: elastic_start_config
-#        target: /usr/share/elasticsearch/bin/startNode.sh
+#      - source: elastic_config
+#        target: /usr/share/elasticsearch/config/elasticsearch.yml
     volumes:
       - type: volume
         source: ssl
@@ -63,8 +63,8 @@ services:
 
 configs:
 
-#  elastic_start_config:
-#    file: ./elasticsearch/bin/startNode.sh
+#  elastic_config:
+#    file: ./elasticsearch/config/elasticsearch.yml
   logstash_config:
     file: ./logstash/config/logstash.yml
   logstash_pipeline:
