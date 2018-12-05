@@ -11,7 +11,7 @@
 
 ## Versions:
 
-- elk 6.4.2
+- ELK 6.4.2
 - search guard 6
 - search-guard-tlstool-1.5 https://github.com/floragunncom/search-guard-tlstool
 - java-1.8.0-openjdk
