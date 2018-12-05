@@ -52,7 +52,7 @@ Deploy Stack:
 
 `docker stack deploy -c docker-stack.yml searchguard`
 
-Get docker container name `docker ps -a` to ssh into:
+Get docker container name for elasticsearch `docker ps -a` and ssh into:
 
 `docker exec -it <elasticsearch-container-name> /bin/bash`
 
