@@ -7,9 +7,9 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
-#    configs:
-#      - source: elastic_config
-#        target: /usr/share/elasticsearch/config/elasticsearch.yml
+    configs:
+      - source: elastic_config
+        target: /usr/share/elasticsearch/config/elasticsearch.yml
     volumes:
       - type: volume
         source: ssl
@@ -52,9 +52,9 @@ services:
         target: /usr/share/kibana/ssl
     ports:
       - "80:5601"
-#    configs:
-#      - source: kibana_config
-#        target: /usr/share/kibana/config/kibana.yml
+    configs:
+      - source: kibana_config
+        target: /usr/share/kibana/config/kibana.yml
     networks:
       - elk
     deploy:
@@ -63,14 +63,14 @@ services:
 
 configs:
 
-#  elastic_config:
-#    file: ./elasticsearch/config/elasticsearch.yml
+  elastic_config:
+    file: ./elasticsearch/config/elasticsearch.yml
   logstash_config:
     file: ./logstash/config/logstash.yml
   logstash_pipeline:
     file: ./logstash/pipeline/logstash.conf
-#  kibana_config:
-#    file: ./kibana/config/kibana.yml
+  kibana_config:
+    file: ./kibana/config/kibana.yml
 
 networks:
   elk:
