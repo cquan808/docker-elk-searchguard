@@ -67,7 +67,7 @@ Initiate searchguard:
 
 Check elasticsearch healt:
 
-`curl --insecure https://localhost:9200/_searchguard/health`
+`curl http://localhost:9200/_searchguard/health`
 
 After elk-searchguard is started, on a command prompt of your choice in your local computer (windows 10 for me) with gcloud sdk installed, run:
 
