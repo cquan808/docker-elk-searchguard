@@ -61,7 +61,7 @@ Get docker container name `docker ps -a` to ssh into:
 
 a new password hash will be generated, replace in `config/sg/sg_internal_users.yml` if you want to update (recommended for production)
 
-**Note:** places to note if passwords are changed: (ssh into first)
+**Note:** places to note if passwords are changed in `elasticsearch/config/sg/sg_internal_users.yml`:
 
 - kibana container --> `config/kibana.yml`
 - logstash container --> `pipeline/logstash.conf`
