@@ -1,0 +1,80 @@
+version: '3.3'
+
+services:
+
+  elasticsearch:
+    image: dockerelksearchguard_elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+#    configs:
+#      - source: elastic_start_config
+#        target: /usr/share/elasticsearch/bin/startNode.sh
+    volumes:
+      - type: volume
+        source: ssl
+        target: /usr/share/elasticsearch/ssl
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - elk
+    deploy:
+      mode: replicated
+      replicas: 1
+
+  logstash:
+    image: dockerelksearchguard_logstash
+    depends_on:
+      - elasticsearch
+    ports:
+      - "5000:5000"
+      - "9600:9600"
+    configs:
+      - source: logstash_config
+        target: /usr/share/logstash/config/logstash.yml
+      - source: logstash_pipeline
+        target: /usr/share/logstash/pipeline/logstash.conf
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - elk
+    deploy:
+      mode: replicated
+      replicas: 1
+
+  kibana:
+    image: dockerelksearchguard_kibana
+    depends_on: 
+      - elasticsearch
+    volumes:
+      - type: volume
+        source: ssl
+        target: /usr/share/kibana/ssl
+    ports:
+      - "80:5601"
+#    configs:
+#      - source: kibana_config
+#        target: /usr/share/kibana/config/kibana.yml
+    networks:
+      - elk
+    deploy:
+      mode: replicated
+      replicas: 1
+
+configs:
+
+#  elastic_start_config:
+#    file: ./elasticsearch/bin/startNode.sh
+  logstash_config:
+    file: ./logstash/config/logstash.yml
+  logstash_pipeline:
+    file: ./logstash/pipeline/logstash.conf
+#  kibana_config:
+#    file: ./kibana/config/kibana.yml
+
+networks:
+  elk:
+    driver: overlay
+
+volumes:
+  ssl:

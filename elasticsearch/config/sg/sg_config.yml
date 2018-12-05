@@ -1,0 +1,15 @@
+searchguard:
+  dynamic:
+    http:
+      xff:
+#        anonymous_auth_enabled: false
+        enabled: false
+    authc:
+      basic_internal_auth_domain:
+        http_enable: true
+        transport_enabled: true
+        http_authenticator:
+          type: basic
+        authentication_backend:
+          type: intern
+#    authz: {}

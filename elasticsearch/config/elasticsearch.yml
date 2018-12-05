@@ -1,0 +1,37 @@
+---
+## Default Elasticsearch configuration from elasticsearch-docker.
+## from https://github.com/elastic/elasticsearch-docker/blob/master/build/elasticsearch/elasticsearch.yml
+#
+cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+
+# minimum_master_nodes need to be explicitly set when bound on a public IP
+# set to 1 to allow single node clusters
+# Details: https://github.com/elastic/elasticsearch/pull/17288
+discovery.zen.minimum_master_nodes: 1
+
+## Use single node discovery in order to disable production mode and avoid bootstrap checks
+## see https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+#
+discovery.type: single-node
+
+## Search Guard
+#
+searchguard.enterprise_modules_enabled: false
+
+searchguard.ssl.transport.pemcert_filepath: node1.pem
+searchguard.ssl.transport.pemkey_filepath: node1.key
+#searchguard.ssl.transport.pemkey_password: admin
+searchguard.ssl.transport.pemtrustedcas_filepath: root-ca.pem
+searchguard.ssl.transport.enforce_hostname_verification: false
+searchguard.ssl.transport.resolve_hostname: false
+searchguard.ssl.http.enabled: false
+#searchguard.ssl.http.pemcert_filepath: node1_http.pem
+#searchguard.ssl.http.pemkey_filepath: node1_http.key
+#searchguard.ssl.http.pemkey_password: admin
+#searchguard.ssl.http.pemtrustedcas_filepath: root-ca.pem
+searchguard.nodes_dn:
+- CN=node1.chrisquan.com,OU=SSL,O=devop,DC=chrisquan,DC=com
+searchguard.authcz.admin_dn:
+- CN=admin.chrisquan.com,OU=SSL,O=devop,DC=chrisquan,DC=com
+# 
