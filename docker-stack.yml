@@ -67,11 +67,10 @@ configs:
 
   elastic_config:
     file: ./elasticsearch/config/elasticsearch.yml
-  
-  logstash_config:
-    file: ./logstash/config/logstash.yml
   searchguard_config:
     file: ./elasticsearch/search-guard-tlstool-1.5/config/elk.yml
+  logstash_config:
+    file: ./logstash/config/logstash.yml
   logstash_pipeline:
     file: ./logstash/pipeline/logstash.conf
   kibana_config:
