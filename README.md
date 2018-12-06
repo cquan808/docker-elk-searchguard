@@ -46,7 +46,7 @@ Build images for elasticsearch, kibana, and logstash:
 
 `docker-compose build`
 
-**Note:** if docker-compose is not installed: `apt-get install docker-compose`
+**Tip:** Build time is going to take awhile, [youtube](https://www.youtube.com/) will entertain you
 
 Deploy Stack:
 
