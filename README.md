@@ -56,17 +56,6 @@ Get docker container name for elasticsearch `docker ps -a` and ssh into:
 
 `docker exec -it <elasticsearch-container-name> /bin/bash`
 
-**Note:** to generate new password for user: 
-
-`plugins/search-guard-6/tools/hash.sh -p <new-password>`
-
-a new password hash will be generated, replace in `config/sg/sg_internal_users.yml` if you want to update (recommended for production)
-
-**Note:** places to note if passwords are changed in `elasticsearch/config/sg/sg_internal_users.yml` (after exiting ssh):
-
-- kibana --> `kibana/config/kibana.yml` (must be changed first before build deploying stack)
-- logstash --> `logstash/pipeline/logstash.conf` (must be changed first before build and deploying stack)
-
 Initiate searchguard:
 
 `bin/startNode.sh`
@@ -87,5 +76,36 @@ Open a browser and enter kibana:
 
 `localhost:80`
 
-**Note:** unchanged user:password to login is `admin:admin`
+**Note:** user:password to login is `admin:admin`
 
+## Password Update
+
+- update password for kibana and logstash to connect to elasticsearch
+- update password for kibana user login
+
+Update the password in the following directories:
+
+- kibana --> `kibana/config/kibana.yml`
+- logstash --> `logstash/pipeline/logstash.conf`
+
+Deploy Stack:
+
+`docker stack deploy -c docker-stack.yml searchguard`
+
+SSH into elasticsearch container: `docker ps -a` to get container name
+
+`docker exec -it <elasticsearch-container-name> /bin/bash`
+
+Before initializing searchguard, get password hash
+
+`plugins/search-guard-6/tools/hash.sh -p <new-password>`
+
+a new password hash will be generated, replace in `config/sg/sg_internal_users.yml` for kibanaserver and logstash
+
+You can also update admin password and create new internal users with passwords here.
+
+Initiate searchguard:
+
+`bin/startNode.sh`
+
+you can now login with new kibana user and password
