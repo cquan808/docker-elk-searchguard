@@ -48,6 +48,8 @@ Build images for elasticsearch, kibana, and logstash:
 
 **Tip:** Build time is going to take awhile, [youtube](https://www.youtube.com/) will entertain you
 
+**Note:** a re-build must be made if there are any changes to your search guard tls config because certificates are generated during the build!!
+
 Deploy Stack:
 
 `docker stack deploy -c docker-stack.yml searchguard`
