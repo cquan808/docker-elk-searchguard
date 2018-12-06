@@ -10,8 +10,6 @@ services:
     configs:
       - source: elastic_config
         target: /usr/share/elasticsearch/config/elasticsearch.yml
-      - source: searchguard_config
-        target: /usr/share/elasticsearch/search-guard-tlstool-1.5/config/elk.yml
     volumes:
       - type: volume
         source: ssl
@@ -67,8 +65,6 @@ configs:
 
   elastic_config:
     file: ./elasticsearch/config/elasticsearch.yml
-  searchguard_config:
-    file: ./elasticsearch/search-guard-tlstool-1.5/config/elk.yml
   logstash_config:
     file: ./logstash/config/logstash.yml
   logstash_pipeline:
